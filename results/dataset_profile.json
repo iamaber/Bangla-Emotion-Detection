@@ -1,0 +1,70 @@
+{
+  "source_file": "Bangla Emotion Dataset.csv",
+  "rows": 20642,
+  "columns": [
+    "ID",
+    "Data",
+    "Love",
+    "Joy",
+    "Surprise",
+    "Anger",
+    "Sadness",
+    "Fear",
+    "Topic",
+    "Domain"
+  ],
+  "unique_ids": 20642,
+  "duplicate_text_rows": 70,
+  "domains": {
+    "Youtube": 15942,
+    "Facebook": 4310,
+    "Twitter": 390
+  },
+  "emotion_marginals": {
+    "Love": 0.20187,
+    "Joy": 0.443416,
+    "Surprise": 0.048106,
+    "Anger": 0.197413,
+    "Sadness": 0.250412,
+    "Fear": 0.017731
+  },
+  "positive_emotions_per_row": {
+    "1": 17435,
+    "2": 3135,
+    "3": 70,
+    "4": 2
+  },
+  "distinct_emotion_signatures": 38,
+  "most_frequent_signature": {
+    "labels": [
+      "Joy"
+    ],
+    "rows": 6932
+  },
+  "topics": {
+    "n_classes": 12,
+    "multi_label_rows": 0,
+    "empty_rows": 0,
+    "counts": {
+      "Personal": 5481,
+      "Politics": 3370,
+      "Entertainment": 3064,
+      "Sports": 2596,
+      "Music": 2283,
+      "Education": 2037,
+      "Business": 583,
+      "Food": 442,
+      "Travel": 412,
+      "Game": 225,
+      "Fashion": 96,
+      "Health": 53
+    }
+  },
+  "baselines": {
+    "definition": "per-label majority classifier: predict each label's majority value independently (all-zero here, since no emotion exceeds 50%)",
+    "per_label_accuracy": 0.806842,
+    "hamming_loss": 0.193158,
+    "subset_accuracy": 0.0,
+    "most_frequent_signature_subset_accuracy": 0.33582
+  }
+}
