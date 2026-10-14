@@ -1,0 +1,24 @@
+{
+  "task": "emotions",
+  "definition": "per-label majority classifier (no model, no features)",
+  "per_label_accuracy": {
+    "Love": 0.7978689053923151,
+    "Joy": 0.5563448498546981,
+    "Surprise": 0.9525347110106555,
+    "Anger": 0.8023894091055861,
+    "Sadness": 0.7497578301582176,
+    "Fear": 0.9819179851469164
+  },
+  "per_label_majority_accuracy": 0.8068022817780648,
+  "hamming_loss": 0.1931977182219352,
+  "subset_accuracy": 0.0,
+  "most_frequent_signature_subset_accuracy": 0.33580884727155313,
+  "label_marginals": {
+    "Love": 0.20213109460768486,
+    "Joy": 0.4436551501453019,
+    "Surprise": 0.047465288989344524,
+    "Anger": 0.19761059089441396,
+    "Sadness": 0.2502421698417824,
+    "Fear": 0.01808201485308363
+  }
+}
