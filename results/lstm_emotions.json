@@ -1,0 +1,84 @@
+{
+  "task": "emotions",
+  "definition": "multi-label binary; subset_accuracy = all 6 labels exact",
+  "per_label": {
+    "Love": {
+      "precision": 0.3146853146853147,
+      "recall": 0.7188498402555911,
+      "f1": 0.4377431906614786,
+      "support": 626
+    },
+    "Joy": {
+      "precision": 0.5775862068965517,
+      "recall": 0.8289665211062591,
+      "f1": 0.680812910938434,
+      "support": 1374
+    },
+    "Surprise": {
+      "precision": 0.0962566844919786,
+      "recall": 0.24489795918367346,
+      "f1": 0.1381957773512476,
+      "support": 147
+    },
+    "Anger": {
+      "precision": 0.31310861423220976,
+      "recall": 0.6830065359477124,
+      "f1": 0.4293785310734463,
+      "support": 612
+    },
+    "Sadness": {
+      "precision": 0.5259259259259259,
+      "recall": 0.6412903225806451,
+      "f1": 0.577906976744186,
+      "support": 775
+    },
+    "Fear": {
+      "precision": 0.016611295681063124,
+      "recall": 0.08928571428571429,
+      "f1": 0.028011204481792718,
+      "support": 56
+    }
+  },
+  "macro_precision": 0.30736234031884063,
+  "macro_recall": 0.5343828155599326,
+  "macro_f1": 0.3820080985417642,
+  "micro_precision": 0.40034607519270093,
+  "micro_recall": 0.7089136490250696,
+  "micro_f1": 0.5117120739921585,
+  "subset_accuracy": 0.19276719405876655,
+  "hamming_loss": 0.2613819825637714,
+  "model": "bilstm+attention (tokenizer fitted on train)",
+  "split": "test 15%, unseen during training and threshold selection",
+  "thresholds": {
+    "Love": 0.2,
+    "Joy": 0.35000000000000003,
+    "Surprise": 0.1,
+    "Anger": 0.2,
+    "Sadness": 0.35000000000000003,
+    "Fear": 0.05
+  },
+  "majority_baseline": {
+    "task": "emotions",
+    "definition": "per-label majority classifier (no model, no features)",
+    "per_label_accuracy": {
+      "Love": 0.7978689053923151,
+      "Joy": 0.5563448498546981,
+      "Surprise": 0.9525347110106555,
+      "Anger": 0.8023894091055861,
+      "Sadness": 0.7497578301582176,
+      "Fear": 0.9819179851469164
+    },
+    "per_label_majority_accuracy": 0.8068022817780648,
+    "hamming_loss": 0.1931977182219352,
+    "subset_accuracy": 0.0,
+    "most_frequent_signature_subset_accuracy": 0.33580884727155313,
+    "label_marginals": {
+      "Love": 0.20213109460768486,
+      "Joy": 0.4436551501453019,
+      "Surprise": 0.047465288989344524,
+      "Anger": 0.19761059089441396,
+      "Sadness": 0.2502421698417824,
+      "Fear": 0.01808201485308363
+    }
+  }
+}
