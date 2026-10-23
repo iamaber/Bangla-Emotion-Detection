@@ -140,6 +140,7 @@ def emotions_metrics(y_true, y_pred, labels=EMOTIONS):
                 "precision": float(precision[i]),
                 "recall": float(recall[i]),
                 "f1": float(f1[i]),
+                "accuracy": float(np.mean(y_true[:, i] == y_pred[:, i])),
                 "support": int(support[i]),
             }
             for i, label in enumerate(labels)
@@ -150,6 +151,11 @@ def emotions_metrics(y_true, y_pred, labels=EMOTIONS):
         "micro_precision": float(micro_p),
         "micro_recall": float(micro_r),
         "micro_f1": float(micro_f1),
+        # Mean per-label binary accuracy. This is the number the old notebooks
+        # printed as "accuracy"; it is directly comparable to the majority
+        # baseline's per-label accuracy and is far more forgiving than
+        # subset_accuracy.
+        "per_label_accuracy": float(np.mean(y_true == y_pred)),
         "subset_accuracy": float(np.mean(np.all(y_true == y_pred, axis=1))),
         "hamming_loss": float(hamming_loss(y_true, y_pred)),
     }

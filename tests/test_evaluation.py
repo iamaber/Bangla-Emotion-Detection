@@ -62,6 +62,28 @@ class MetricTests(unittest.TestCase):
         self.assertAlmostEqual(result["per_label"]["Love"]["recall"], 0.0)
         self.assertAlmostEqual(result["per_label"]["Joy"]["f1"], 0.0)
 
+    def test_per_label_accuracy_is_comparable_to_majority_baseline(self):
+        """The reported per-label accuracy must use the same definition as the baseline."""
+        y_true = np.array([[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0]])
+        y_pred = np.zeros_like(y_true)
+        model = evaluation.emotions_metrics(y_true, y_pred)
+        baseline = evaluation.majority_baseline(y_true)
+        # Identifying all-zero predictions on these rows is exactly the
+        # baseline's own accuracy, so the two definitions must agree.
+        self.assertAlmostEqual(
+            model["per_label_accuracy"], baseline["per_label_majority_accuracy"]
+        )
+
+    def test_per_label_accuracy_differs_from_subset_accuracy(self):
+        """Guards against relabelling one metric as the other."""
+        y_true = np.array([[1, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0]])
+        y_pred = np.array([[1, 0, 0, 0, 0, 0], [1, 0, 1, 0, 0, 0]])
+        result = evaluation.emotions_metrics(y_true, y_pred)
+        # Neither row matches all six labels, so subset accuracy is 0 ...
+        self.assertAlmostEqual(result["subset_accuracy"], 0.0)
+        # ... while 10 of the 12 individual cells agree.
+        self.assertAlmostEqual(result["per_label_accuracy"], 10 / 12)
+
     def test_topic_metrics_is_multiclass(self):
         names = ["A", "B", "C"]
         y_true = np.array([0, 1, 2, 2])

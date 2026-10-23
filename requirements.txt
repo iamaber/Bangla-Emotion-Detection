@@ -1,0 +1,22 @@
+# Tested on CPython 3.10 (the notebook metadata records 3.10.9).
+# TensorFlow 2.15.1 requires Python >= 3.10 and pins Keras 2.x, which the
+# notebooks' masking code relies on (see Multi-Task-Neural network.ipynb).
+numpy==1.26.4
+pandas==2.3.3
+
+# Classical models
+scikit-learn==1.7.2
+xgboost==2.1.1
+joblib==1.4.2
+
+# Neural models (LSTM notebook)
+tensorflow==2.15.1
+keras==2.15.0
+
+# BanglaBERT notebook: transformers converts the PyTorch checkpoint
+# (from_pt=True), so torch is required even though training runs in TF.
+transformers==4.44.2
+torch==2.4.1
+
+# Bangla text cleaning (bnlp.CleanText)
+bnlp-toolkit==4.0.3

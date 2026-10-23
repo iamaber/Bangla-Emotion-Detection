@@ -1,0 +1,9 @@
+# Keep notebook outputs out of git (see finding #18): training logs, host
+# diagnostics and base64 images bloat diffs and leak environment details.
+#
+# Attributes only. The nbstripout filter must be registered once per clone:
+#     pip install nbstripout && nbstripout --install
+# which writes the [filter "nbstripout"] stanza into .git/config and keeps the
+# attribute below pointing at it.
+*.ipynb filter=nbstripout
+*.ipynb diff=jupyter
