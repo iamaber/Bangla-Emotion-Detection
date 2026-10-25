@@ -20,3 +20,9 @@ torch==2.4.1
 
 # Bangla text cleaning (bnlp.CleanText)
 bnlp-toolkit==4.0.3
+
+# Notebook runner: `jupyter lab` (README) and `jupyter nbconvert --execute`
+# (`make notebooks`). Version ranges, not tested pins: the pins above are the
+# set the notebooks were run with; these two only launch and execute them.
+jupyterlab>=4,<5
+nbconvert>=7,<8
