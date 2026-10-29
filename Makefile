@@ -12,18 +12,18 @@ setup:
 	./.venv/bin/pip install -r requirements.txt nbstripout
 
 test:
-	PYTHONHASHSEED=42 python -m unittest discover -s tests -v
+	PYTHONHASHSEED=42 ./.venv/bin/python -m unittest discover -s tests -v
 
 profile:
-	python3 profile_dataset.py
+	./.venv/bin/python profile_dataset.py
 
 notebooks:
-	PYTHONHASHSEED=42 jupyter nbconvert --to notebook --execute --inplace \
+	PYTHONHASHSEED=42 ./.venv/bin/jupyter nbconvert --to notebook --execute --inplace \
 		"XGBoost.ipynb" "Multi-Task-Neural network.ipynb" \
 		"Neural network with banglabert_small.ipynb"
 
 strip:
-	nbstripout "*.ipynb"
+	./.venv/bin/nbstripout *.ipynb
 
 clean:
 	rm -rf results/*.joblib results/*.weights.h5 results/lstm_tokenizer.json
