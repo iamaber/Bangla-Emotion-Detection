@@ -1,4 +1,4 @@
-# Tested on CPython 3.10 (the notebook metadata records 3.10.9).
+# Tested on CPython 3.10 (the notebook metadata records 3.10.22).
 # TensorFlow 2.15.1 requires Python >= 3.10 and pins Keras 2.x, which the
 # notebooks' masking code relies on (see Multi-Task-Neural network.ipynb).
 numpy==1.26.4
