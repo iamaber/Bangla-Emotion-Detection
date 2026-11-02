@@ -97,8 +97,8 @@ in `results/`.
 | XGBoost + TF-IDF | 0.782 | **0.408** | 0.539 | 0.251 | 0.218 |
 | BiLSTM + attention | 0.739 | 0.382 | 0.512 | 0.193 | 0.261 |
 
-Per-label F1 (XGBoost): Love 0.45 · Joy 0.67 · Surprise 0.16 · Anger 0.43 ·
-Sadness 0.59 · Fear 0.17.
+Per-label F1 (XGBoost): Love 0.45 · Joy 0.67 · Surprise 0.16 · Anger 0.42 ·
+Sadness 0.58 · Fear 0.17.
 
 Per-label F1 (BiLSTM): Love 0.44 · Joy 0.68 · Surprise 0.14 · Anger 0.43 ·
 Sadness 0.58 · Fear 0.03.
