@@ -82,7 +82,10 @@ all six labels. On the test split:
 Any model must beat **0.807 per-label accuracy** and **0.193 hamming loss** to be
 worth anything. As the results show, none of the three does.
 
-Source: `results/dataset_profile.json`.
+Source: `results/xgboost_baseline.json` and `results/lstm_baseline.json`
+(identical: both are computed on the same 3,097-row test split). The same
+baseline over all 20,642 rows is in `results/dataset_profile.json` and rounds
+to the same values.
 
 ## Results
 
