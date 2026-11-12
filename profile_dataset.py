@@ -43,13 +43,15 @@ def profile(rows):
     texts = collections.Counter(row["Data"].strip() for row in rows)
     topics = collections.Counter(row["Topic"] for row in rows)
     domains = collections.Counter(row["Domain"] for row in rows)
-    ids = [row["ID"] for row in rows]
+    ids = [int(row["ID"]) for row in rows]
 
     return {
         "source_file": DATASET,
         "rows": n,
         "columns": list(rows[0].keys()),
         "unique_ids": len(set(ids)),
+        "min_id": min(ids),
+        "max_id": max(ids),
         "duplicate_text_rows": n - len(texts),
         "domains": dict(domains.most_common()),
         "emotion_marginals": {name: round(marginals[name], 6) for name in EMOTIONS},

@@ -14,6 +14,8 @@
     "Domain"
   ],
   "unique_ids": 20642,
+  "min_id": 8,
+  "max_id": 28164,
   "duplicate_text_rows": 70,
   "domains": {
     "Youtube": 15942,
