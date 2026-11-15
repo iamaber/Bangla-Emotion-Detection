@@ -79,8 +79,10 @@ all six labels. On the test split:
 | Subset accuracy (all six correct) | 0.000 |
 | Most frequent single label signature (`Joy` only) subset accuracy | 0.336 |
 
-Any model must beat **0.807 per-label accuracy** and **0.193 hamming loss** to be
-worth anything. As the results show, none of the three does.
+Any model must beat **0.807 per-label accuracy** and **0.193 hamming loss** to
+improve on it by those two metrics. As the results show, neither of the two
+models evaluated so far does. (Predicting no positives, this baseline has an
+F1 of 0 on every label, so it is a floor for accuracy and hamming loss only.)
 
 Source: `results/xgboost_baseline.json` and `results/lstm_baseline.json`
 (identical: both are computed on the same 3,097-row test split). The same
@@ -106,15 +108,19 @@ Sadness 0.58 · Fear 0.17.
 Per-label F1 (BiLSTM): Love 0.44 · Joy 0.68 · Surprise 0.14 · Anger 0.43 ·
 Sadness 0.58 · Fear 0.03.
 
-**Both emotion models are worse than the trivial baseline.** Per-label accuracy
-(0.782 and 0.739) is below the baseline's 0.807, and hamming loss (0.218 and
-0.261) is above its 0.193. That is the same picture the original notebooks
-showed once the metric is named correctly: the old headline "accuracy" of
-0.5597 was this per-label binary accuracy, not exact-match accuracy, and it was
-never compared against the majority floor. The models buy recall on frequent
-classes by over-predicting, which is why macro-F1 looks moderate while
-per-label accuracy is poor. `Surprise` (4.8%) and `Fear` (1.8%) are effectively
-unlearned.
+**On per-label accuracy and hamming loss, both emotion models are worse than
+the trivial baseline.** Per-label accuracy (0.782 and 0.739) is below the
+baseline's 0.807, and hamming loss (0.218 and 0.261) is above its 0.193. The
+comparison is made at the models' F1-optimal operating point: the per-label
+thresholds are tuned on validation to maximise F1, whereas the all-zero
+baseline maximises accuracy. By macro-F1 the models (0.408 and 0.382) are
+ahead of that baseline, whose F1 is 0 because it predicts no positives. For
+accuracy, this is the same picture the original notebooks showed once the
+metric is named correctly: the old headline "accuracy" of 0.5597 was this
+per-label binary accuracy, not exact-match accuracy, and it was never compared
+against the majority floor. The models buy recall on frequent classes by
+over-predicting, which is why macro-F1 looks moderate while per-label accuracy
+is poor. `Surprise` (4.8%) and `Fear` (1.8%) are effectively unlearned.
 
 ### Topic (single-label, 12 classes)
 
